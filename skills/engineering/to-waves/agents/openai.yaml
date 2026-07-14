@@ -1,0 +1,5 @@
+interface:
+  display_name: "To Waves"
+  short_description: "Partition a large scope into validatable waves"
+policy:
+  allow_implicit_invocation: false

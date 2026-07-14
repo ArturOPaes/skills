@@ -1,0 +1,3 @@
+interface:
+  display_name: "E2E"
+  short_description: "End-to-end tests from acceptance criteria"

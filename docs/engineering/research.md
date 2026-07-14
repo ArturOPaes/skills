@@ -1,14 +1,14 @@
 Quickstart:
 
 ```bash
-npx skills add mattpocock/skills --skill=research
+npx skills add ArturOPaes/skills --skill=research
 ```
 
 ```bash
 npx skills update research
 ```
 
-[Source](https://github.com/mattpocock/skills/tree/main/skills/engineering/research)
+[Source](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/research)
 
 ## What it does
 
@@ -18,7 +18,7 @@ npx skills update research
 
 Type `/research`, or the agent reaches for it automatically when a task turns into reading legwork.
 
-Reach for it when the next step is *finding something out* — how an API behaves, what a spec actually says, whether a claim holds — and you'd rather not stall your own thread doing the reading. For sharpening a plan by interview instead of by reading, use [grilling](https://aihero.dev/skills-grilling); for exploring what to build with throwaway code, use [prototype](https://aihero.dev/skills-prototype).
+Reach for it when the next step is *finding something out* — how an API behaves, what a spec actually says, whether a claim holds — and you'd rather not stall your own thread doing the reading. For sharpening a plan by interview instead of by reading, use [grilling](https://github.com/ArturOPaes/skills/tree/main/skills/productivity/grilling); for exploring what to build with throwaway code, use [prototype](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/prototype).
 
 ## Delegated legwork
 
@@ -26,4 +26,4 @@ The defining move is that the reading runs as a **background agent**. You keep w
 
 ## Where it fits
 
-A reach-for-it-anytime standalone that feeds the thinking skills: the file it produces is something to grill, plan, or design against, so it sits upstream of work like [grilling](https://aihero.dev/skills-grilling) and [to-prd](https://aihero.dev/skills-to-prd) rather than in the build chain. For the whole map, see [ask-matt](https://aihero.dev/skills-ask-matt).
+A reach-for-it-anytime standalone that feeds the thinking skills: the file it produces is something to grill, plan, or design against, so it sits upstream of work like [grilling](https://github.com/ArturOPaes/skills/tree/main/skills/productivity/grilling) and [to-prd](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/to-prd) rather than in the build chain. For the whole map, see [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu).

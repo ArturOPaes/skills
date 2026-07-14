@@ -1,0 +1,5 @@
+interface:
+  display_name: "Manual QA"
+  short_description: "Validate a built task by running the real app"
+policy:
+  allow_implicit_invocation: false
