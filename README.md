@@ -183,6 +183,7 @@ Skills I use daily for code work.
 - **[to-waves](./skills/engineering/to-waves/SKILL.md)** — Partition a large scope into ordered waves — shippable, validatable milestones, each with a validation goal — before slicing any of them into tickets. Sits between `/to-spec` and `/to-tickets` for work too big to slice in one pass.
 - **[to-tickets](./skills/engineering/to-tickets/SKILL.md)** — Break any plan, spec, or conversation into a set of tracer-bullet tickets, each declaring its blocking edges — written as text in a local file, or as native blocking links on a real tracker.
 - **[implement](./skills/engineering/implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
+- **[manual-qa](./skills/engineering/manual-qa/SKILL.md)** — Bring a built task into a validatable state — locally with self-created seeds, or against an environment with defined credentials — and walk its acceptance criteria with a human. The manual counterpart to `/e2e`.
 - **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** — Plan a huge chunk of work, more than one agent session can hold, as a shared map of investigation tickets on the issue tracker — resolve them one at a time until the way to the destination is clear.
 
 **Model-invoked**
