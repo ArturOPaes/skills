@@ -51,16 +51,16 @@ Reuse of these IDs across diagrams is what lets the **traceability map** close t
 
 ## The diagrams
 
-The full catalogue — what each answers, when to include it, and a Mermaid skeleton — is in [DIAGRAMS.md](DIAGRAMS.md): the **screen inventory**, **navigation map**, **screen detail map / wireflow** (each screen's fields and actions, with actions linked to the screens they lead to), **user flow**, **traceability map**, **screen states**, **sequence**, and **data (ER)** diagrams. The first five are the connective backbone and are always drawn; the last three are drawn per-flow when the flow's complexity earns them.
+The full catalogue — what each answers, when to include it, and a Mermaid skeleton — is in [DIAGRAMS.md](DIAGRAMS.md): the **screen inventory**, **navigation map**, **screen detail map / wireflow** (each screen's fields and actions, with actions linked to the screens they lead to), **user flow**, **traceability map**, **screen states**, **sequence**, **data (ER)**, and **system design** (topology + bottlenecks) diagrams. The first five are the connective backbone and are always drawn; the last four are drawn per-flow when the flow's complexity earns them.
 
 The **screen detail map** (a wireflow — a wireframe's content joined to the flow) is the one to walk field-by-field with the user before slicing tickets — it shows every field and action on a screen, so a missing field or an undefined action surfaces as a question here rather than mid-implementation.
 
 ## Where it fits
 
-`blueprint` is a **per-wave visual synthesis step**, after the spec (and the mockup, if there is one) and before or alongside tickets:
+`blueprint` is part of the **whole-product overview**, drawn upfront before any implementation — after the spec and the mockup, and before the pre-flight gate:
 
 ```txt
-to-spec → [mockup] → blueprint → to-tickets → implement
+to-spec → grill-design → mockup → blueprint → pre-flight → (build)
 ```
 
-It reads the spec's stories, the mockup's screens, and the domain's ADRs, and hands the developer a connected macro view to slice tickets against. It extends the same **traceability spine** that [mockup](../mockup/SKILL.md) (semantic markup) and [e2e](../e2e/SKILL.md) (selectors) build — the blueprint is the story-to-screen-to-ticket layer of it. Reach for it standalone any time you want to visualise an existing spec. When you're unsure which skill or flow fits, [ask-tutu](../ask-tutu/SKILL.md) routes you.
+It reads the spec's stories, the mockup's screens, and the domain's ADRs, and hands the developer a connected macro view of the whole product before the build begins; the tickets that `to-tickets` cuts later fill its traceability map's ticket column. It extends the same **traceability spine** that [mockup](../mockup/SKILL.md) (semantic markup) and [e2e](../e2e/SKILL.md) (selectors) build — the blueprint is the story-to-screen-to-ticket layer of it. Reach for it standalone any time you want to visualise an existing spec. When you're unsure which skill or flow fits, [ask-tutu](../ask-tutu/SKILL.md) routes you.
