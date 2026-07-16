@@ -16,6 +16,12 @@ npx skills update mockup
 
 The mockup is promotable, not throwaway. It's real components and real design tokens with mock data isolated behind one clear seam, so shipping it is swapping that seam for real data — never a rewrite. That single fact separates it from a prototype and is the reason it's worth building at production fidelity.
 
+## The canonical frontend source
+
+Using a mockup is optional — but adopt one and it becomes the **single source of truth for the frontend**, not a per-wave sketch. Every feature is mocked into it (covering the user stories, ADRs, diagrams, and `DESIGN.md`) and, because it's promotable, implemented *in* it in place — the mock data is swapped for real, wave by wave, ticket by ticket, so the mockup and the shipped frontend converge into the same code.
+
+That yields one hard invariant: **nothing on the frontend that isn't in the mockup first.** Waves and tickets slice the mockup into incremental work, but a ticket only ever promotes a slice that already exists; anything new gets added to the mockup (and traced to its owning decision) before it's built, never invented in production code. It's the invariant [pre-flight](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/pre-flight) checks before greenlighting a build.
+
 ## When to reach for it
 
 Type `/mockup`, or the agent reaches for it when a flow is decided enough to draw but expensive to build and you want to validate the whole experience cheaply first.

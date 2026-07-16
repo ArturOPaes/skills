@@ -22,9 +22,9 @@ For the wave about to be built, cross-checked against its user stories and ticke
 
 - **Documentation** — `CONTEXT.md` covers the wave's domain terms, the hard decisions have ADRs, and (if the wave has UI) `DESIGN.md` fixes the dials, tokens, and target platforms. Docs are owned by [grill-with-docs](../grill-with-docs/SKILL.md) / [domain-modeling](../domain-modeling/SKILL.md); `DESIGN.md` by [grill-design](../grill-design/SKILL.md).
 - **Diagrams** — `BLUEPRINT.md` exists and its traceability map covers the wave: every user story traces to a screen and to a ticket, with no dangling nodes. Owned by [blueprint](../blueprint/SKILL.md).
-- **Hi-fi layout** — the [mockup](../mockup/SKILL.md) route exists for the wave's screens, and its screens match the blueprint's inventory.
+- **Hi-fi layout** — when the [mockup](../mockup/SKILL.md) is the project's canonical frontend source, **every FE definition in the wave** (screen, field, action, state) already appears in it, and its screens match the blueprint's inventory. Anything the wave puts on the frontend that the mockup lacks is a **fail** — the mockup is extended first, never bypassed at implementation time.
 
-The gate is **coverage, not just existence**: a `BLUEPRINT.md` that omits half the wave's stories, or a mockup missing a screen a ticket builds, is a **fail**, not a pass.
+The gate is **coverage, not just existence**: a `BLUEPRINT.md` that omits half the wave's stories, or a wave that would build frontend absent from the mockup, is a **fail**, not a pass.
 
 ## The loop
 
