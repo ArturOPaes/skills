@@ -12,6 +12,8 @@ The issue tracker and triage label vocabulary should have been provided to you â
 
 When [to-waves](../to-waves/SKILL.md) has already partitioned the scope, slice **the current wave**, not the whole plan.
 
+If a `BLUEPRINT.md` exists (from [blueprint](../blueprint/SKILL.md)), slice against it â€” its traceability map already names the screens and stories each ticket must satisfy, so the tickets you cut here become the `#<n>` nodes that close its ticket column.
+
 ## Process
 
 ### 1. Gather context

@@ -22,9 +22,11 @@ Type `/mockup`, or the agent reaches for it when a flow is decided enough to dra
 
 Reach for it to see and align on a flow — a whole wave's worth of screens — before writing production logic. For *one* open question — does this state model feel right, which of several directions wins — use [prototype](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/prototype) instead: prototype to decide and discard, mockup to align and seed.
 
-## Reference-driven
+## Drawn against taste
 
-Before drawing, `mockup` asks you for references — a folder of screenshots, a design system, component-library links. It takes structure and accessibility patterns from them but binds every colour and token to the project's own design tokens; it never pastes hardcoded styles. References are a starting point, not a source of truth.
+A mockup is where the project's design taste is on show, so `mockup` draws against the [design-taste](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/design-taste) discipline rather than the median SaaS template. If a `DESIGN.md` exists (from [grill-design](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/grill-design)), it obeys it — dials, tokens, motion language already fixed; if not, the taste principles and the anti-slop checklist still apply, and it's worth settling the language first so the mockup seeds it rather than guessing per screen.
+
+It still asks you for references — screenshots, a design system, component-library links — taking structure and accessibility patterns from them but binding every colour and token to the project's own design tokens, never pasting hardcoded styles. References seed the design; they aren't a source of truth.
 
 ## It's working if
 
