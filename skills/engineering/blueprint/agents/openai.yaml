@@ -1,0 +1,5 @@
+interface:
+  display_name: "Blueprint"
+  short_description: "Draw a flow's diagrams (Mermaid) from the spec, domain, and UI"
+policy:
+  allow_implicit_invocation: false

@@ -49,6 +49,7 @@ Draft each variant. Hold each one to:
 
 - The page's purpose and the data it has access to.
 - The project's component library / styling system (TailwindCSS, shadcn, MUI, plain CSS, whatever).
+- The [design-taste](../design-taste/SKILL.md) discipline — variants disagree about *structure*, but each one still passes the anti-slop tells (no default fonts, no AI gradient, tinted neutrals, real hierarchy). Radically different is the point; generic is not. If a `DESIGN.md` exists, variants explore *within* its dials and tokens.
 - A clear exported component name, e.g. `VariantA`, `VariantB`, `VariantC`.
 
 Variants must be **structurally different** — different layout, different information hierarchy, different primary affordance, not just different colours. Three slightly-tweaked card grids isn't a UI prototype, it's wallpaper. If two drafts come out too similar, redo one with explicit "do not use a card grid" guidance.

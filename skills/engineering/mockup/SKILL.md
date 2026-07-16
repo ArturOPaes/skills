@@ -15,9 +15,14 @@ Reach for it when a flow is decided enough to draw but expensive to build, and y
 
 If instead you have *one* open question — does this state machine feel right, or which of several UI directions wins — that's a throwaway [prototype](../prototype/SKILL.md), not a mockup. Prototype to *decide*; mockup to *align and seed*.
 
-## Ask for references first
+## Draw with taste, not defaults
 
-Before drawing anything, ask the user to point you at **references** — a folder of screenshots, a design system, component-library links (Origin UI, shadcn/ui, MagicUI), or an existing app to echo. References are a starting point: take structure, spacing rhythm, and accessibility patterns from them, but **bind every color, radius, and token to the project's own design tokens** — never paste hardcoded styles. If the project has no design tokens yet, say so and agree a minimal token set before building.
+A mockup is where the project's design taste is on show, so draw it against the [design-taste](../design-taste/SKILL.md) discipline rather than the median SaaS template. Two beats before anything is drawn:
+
+- **Obey `DESIGN.md` if it exists.** If the project has a `DESIGN.md` (from [grill-design](../grill-design/SKILL.md)), it already fixes the dials, tokens, and motion language — build to it. If it doesn't, `design-taste`'s principles and its anti-slop checklist still apply; consider settling the three dials with the user first, and offer to capture them so the mockup seeds the design language rather than guessing it per screen.
+- **Ask for references.** Point me at a folder of screenshots, a design system, component-library links (Origin UI, shadcn/ui, MagicUI), or an app to echo. Take structure, spacing rhythm, and accessibility patterns from them — but **bind every colour, radius, and token to the project's own design tokens**, never paste hardcoded styles. If the project has no tokens yet, agree a minimal token set before building.
+
+Run the anti-slop checklist over every screen before calling the mockup done.
 
 ## Rules
 

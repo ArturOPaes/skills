@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill Design"
+  short_description: "Grill a project's design language and write its DESIGN.md"
+policy:
+  allow_implicit_invocation: false
