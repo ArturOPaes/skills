@@ -51,9 +51,9 @@ Reuse of these IDs across diagrams is what lets the **traceability map** close t
 
 ## The diagrams
 
-The full catalogue — what each answers, when to include it, and a Mermaid skeleton — is in [DIAGRAMS.md](DIAGRAMS.md): the **screen inventory**, **navigation map**, **screen detail map** (each screen's fields and actions, with actions linked to the screens they lead to), **user flow**, **traceability map**, **screen states**, **sequence**, and **data (ER)** diagrams. The first five are the connective backbone and are always drawn; the last three are drawn per-flow when the flow's complexity earns them.
+The full catalogue — what each answers, when to include it, and a Mermaid skeleton — is in [DIAGRAMS.md](DIAGRAMS.md): the **screen inventory**, **navigation map**, **screen detail map / wireflow** (each screen's fields and actions, with actions linked to the screens they lead to), **user flow**, **traceability map**, **screen states**, **sequence**, and **data (ER)** diagrams. The first five are the connective backbone and are always drawn; the last three are drawn per-flow when the flow's complexity earns them.
 
-The **screen detail map** is the one to walk field-by-field with the user before slicing tickets — it shows every field and action on a screen, so a missing field or an undefined action surfaces as a question here rather than mid-implementation.
+The **screen detail map** (a wireflow — a wireframe's content joined to the flow) is the one to walk field-by-field with the user before slicing tickets — it shows every field and action on a screen, so a missing field or an undefined action surfaces as a question here rather than mid-implementation.
 
 ## Where it fits
 

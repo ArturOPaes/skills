@@ -28,7 +28,7 @@ Stateful — it writes a `BLUEPRINT.md` beside the spec (`.scratch/<feature-slug
 
 ## The diagrams, and the IDs that connect them
 
-Eight diagram types, all Mermaid so they render inline on GitHub. Five are the **connective backbone**, always drawn — the screen inventory, the navigation map, the **screen detail map** (each screen's fields and actions, with actions linked to where they lead — the one to review field-by-field), the user flow, and the **traceability map** (the diagram the skill exists for). Three are **per-flow**, drawn when complexity earns them — screen states, a sequence diagram, and a data/ER diagram.
+Eight diagram types, all Mermaid so they render inline on GitHub. Five are the **connective backbone**, always drawn — the screen inventory, the navigation map, the **screen detail map / wireflow** (each screen's fields and actions, with actions linked to where they lead — a wireframe's content joined to the flow, the one to review field-by-field), the user flow, and the **traceability map** (the diagram the skill exists for). Three are **per-flow**, drawn when complexity earns them — screen states, a sequence diagram, and a data/ER diagram.
 
 What makes them a *blueprint* rather than seven unrelated drawings is a set of **stable IDs** — `US-<n>`, `ADR-<n>`, `#<n>`, `Screen:<Name>` — reused identically across every diagram and back to the spec and tickets. That shared vocabulary is what lets the traceability map close the loop: every screen traces back to a story and forward to the ticket that builds it, and any node that doesn't is a finding routed back to the owning skill.
 

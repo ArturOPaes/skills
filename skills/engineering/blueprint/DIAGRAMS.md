@@ -39,11 +39,13 @@ Keep node labels as `Screen:<Name>` for screens so they match the inventory and 
 
 ---
 
-## 3. Screen detail map — fields, actions, and where they lead ⭐
+## 3. Screen detail map / wireflow — fields, actions, and where they lead ⭐
 
 **Answers:** for each screen, *what fields it shows* and *what actions it offers*, with every action linked to the screen it leads to. **Always.** This is the diagram to review field-by-field: "does this screen need another field?", "what does this button do and where does it go?" — the level of detail where scope gaps surface before any code.
 
-It's a `flowchart` with **one subgraph per screen**. Inside each: fields as parallelograms `[/ /]`, actions as stadiums `([ ])`. Actions draw edges out to the **target screen's subgraph**, so navigation and behaviour show together. This is the "mind map of each screen" — but with real cross-links between screens, which a plain `mindmap` can't express.
+This is a **wireflow** in Mermaid — a wireframe's content joined to the user flow. It's the "mind map of each screen", but with real cross-links between screens, which a plain `mindmap` can't express. It carries the wireflow's *content and flow* (fields, actions, and where each action leads); the actual screen *layout* — where each field and button physically sits — is what [mockup](../mockup/SKILL.md) renders, so the blueprint doesn't redraw it low-fi here.
+
+It's a `flowchart` with **one subgraph per screen**. Inside each: fields as parallelograms `[/ /]`, actions as stadiums `([ ])`. Actions draw edges out to the **target screen's subgraph**, so navigation and behaviour show together.
 
 ```mermaid
 flowchart LR
