@@ -1,0 +1,5 @@
+interface:
+  display_name: "Pre-flight"
+  short_description: "Gate a wave: docs, diagrams, and hi-fi current and reviewed before building"
+policy:
+  allow_implicit_invocation: false

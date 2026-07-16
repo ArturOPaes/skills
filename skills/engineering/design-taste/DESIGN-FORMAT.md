@@ -9,6 +9,11 @@
 
 {One or two sentences: what this product is, and the feeling its UI should give.}
 
+## Platforms
+
+- **Targets**: {web desktop / mobile web / native iOS / native Android / combination} — {which, and why}
+- {Per-platform notes only where they diverge — e.g. "native tab bar on iOS, bottom nav on Android"}
+
 ## Dials
 
 - **Variance**: {low | medium | high} — {one line of why}

@@ -27,7 +27,7 @@ Reach for it when you have a design question that's hard to settle on paper — 
 The question decides the shape, and there are two shapes:
 
 - **"Does this logic / state model feel right?"** — a tiny interactive terminal app that pushes the state machine through the awkward cases, printing the full state after every action so you can watch what changes.
-- **"What should this look like?"** — several radically different UI variations on one route, switchable from a floating bar, so you compare real renders instead of imagining them. The variants disagree about *structure*, but each is still held to the [design-taste](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/design-taste) tells, so you compare real directions rather than shades of the same generic slop.
+- **"What should this look like?"** — it asks the target platform first (web / mobile / native / combination), then generates several radically different UI variations on one route, switchable from a floating bar, so you compare real renders instead of imagining them. Variant A is the recommended direction (the prototype opens on it), and the variants disagree about *structure* while each is still held to the [design-taste](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/design-taste) tells and its platform conventions — so you compare real directions rather than shades of the same generic slop. Mobile/native render in the project's real stack, or in a phone frame on a web route when the project is web-only.
 
 Picking the wrong branch wastes the whole prototype, so the question comes first. Both branches keep state in memory, run from one command, and surface the full state on every step.
 
