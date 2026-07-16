@@ -1,6 +1,6 @@
 # The blueprint diagrams
 
-Eight diagram types. The first five are the **connective backbone** — always drawn. The last three are **per-flow** — drawn when the flow's complexity earns them. Every diagram reuses the stable IDs from `SKILL.md` (`US-<n>`, `ADR-<n>`, `#<n>`, `Screen:<Name>`) so they cross-reference instead of standing alone.
+Nine diagram types. The first five are the **connective backbone** — always drawn. The last four are **per-flow** — drawn when the flow's complexity earns them. Every diagram reuses the stable IDs from `SKILL.md` (`US-<n>`, `ADR-<n>`, `#<n>`, `Screen:<Name>`) so they cross-reference instead of standing alone.
 
 All examples use one running example — a mobile bank — so the IDs line up across diagrams. Copy the skeletons; swap in the real IDs.
 
@@ -179,3 +179,29 @@ erDiagram
 ```
 
 Keep entity names identical to the `CONTEXT.md` glossary — if the glossary says `Conta`, don't draw `Account`. A mismatch here is a domain-language drift worth flagging to [domain-modeling](../domain-modeling/SKILL.md).
+
+---
+
+## 9. System design — components, data flow, and bottlenecks
+
+**Answers:** how the system is put together at runtime — client, API, services, data stores, queues, external dependencies — and *where the bottlenecks are*. **Per-flow / when the system has integration or scale surface.** A macro architecture view to spot risk *before* building, not after.
+
+It's a `flowchart` of the topology with the **bottleneck candidates called out** (a flagged edge or `%%` note): hot paths, N+1 access, synchronous coupling, single points of failure, unbounded fan-out.
+
+```mermaid
+flowchart LR
+  App[Client] --> API[Ledger API]
+  API --> Auth[Auth service]
+  API --> DB[(Postgres)]
+  API --> Cache[(Redis)]
+  API --> Q[[Payments queue]]
+  Q --> Worker[Payment worker]
+  Worker --> Ext[External PSP]
+  Worker --> DB
+
+  API -.->|hot path: saldo lido a cada request| Cache
+  Worker -.->|⚠ ponto único: 1 worker serializa pagamentos| Q
+  API -.->|⚠ N+1: extrato busca por transação| DB
+```
+
+Flag each bottleneck with *why* it's a risk and, where known, the mitigation (cache, batch, async, replica). Keep service and store names aligned with the domain glossary and the ER diagram (#8), so the runtime view and the data view describe the same system.

@@ -28,7 +28,7 @@ Stateful — it writes a `BLUEPRINT.md` beside the spec (`.scratch/<feature-slug
 
 ## The diagrams, and the IDs that connect them
 
-Eight diagram types, all Mermaid so they render inline on GitHub. Five are the **connective backbone**, always drawn — the screen inventory, the navigation map, the **screen detail map / wireflow** (each screen's fields and actions, with actions linked to where they lead — a wireframe's content joined to the flow, the one to review field-by-field), the user flow, and the **traceability map** (the diagram the skill exists for). Three are **per-flow**, drawn when complexity earns them — screen states, a sequence diagram, and a data/ER diagram.
+Nine diagram types, all Mermaid so they render inline on GitHub. Five are the **connective backbone**, always drawn — the screen inventory, the navigation map, the **screen detail map / wireflow** (each screen's fields and actions, with actions linked to where they lead — a wireframe's content joined to the flow, the one to review field-by-field), the user flow, and the **traceability map** (the diagram the skill exists for). Four are **per-flow**, drawn when complexity earns them — screen states, a sequence diagram, a data/ER diagram, and a **system-design diagram** (the runtime topology with bottleneck candidates flagged — hot paths, N+1, single points of failure — to spot risk before building).
 
 What makes them a *blueprint* rather than seven unrelated drawings is a set of **stable IDs** — `US-<n>`, `ADR-<n>`, `#<n>`, `Screen:<Name>` — reused identically across every diagram and back to the spec and tickets. That shared vocabulary is what lets the traceability map close the loop: every screen traces back to a story and forward to the ticket that builds it, and any node that doesn't is a finding routed back to the owning skill.
 
@@ -41,10 +41,10 @@ What makes them a *blueprint* rather than seven unrelated drawings is a set of *
 
 ## Where it fits
 
-`blueprint` is a **per-wave visual synthesis step**, sitting between the spec/mockup and the tickets:
+`blueprint` is part of the **whole-product overview**, drawn upfront before any implementation — after the spec and mockup, and before the pre-flight gate:
 
 ```txt
-to-spec → [mockup] → blueprint → to-tickets → implement
+to-spec → grill-design → mockup → blueprint → pre-flight → (build)
 ```
 
-It hands the developer a connected macro view to slice [to-tickets](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/to-tickets) against, and extends the same traceability spine that [mockup](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/mockup) and [e2e](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/e2e) build. When you're unsure which skill or flow fits, [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu) routes you.
+It hands the developer a connected macro view of the whole product before the build begins, and extends the same traceability spine that [mockup](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/mockup) and [e2e](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/e2e) build; the tickets that [to-tickets](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/to-tickets) cuts later fill its traceability map's ticket column. When you're unsure which skill or flow fits, [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu) routes you.

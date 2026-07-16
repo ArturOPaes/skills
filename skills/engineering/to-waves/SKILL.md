@@ -1,6 +1,6 @@
 ---
 name: to-waves
-description: Partition a large spec into ordered waves — shippable, validatable increments (milestones), each with a validation goal — before slicing any of them into tickets. Use when a scope is too big to break into tickets in one pass, or you want to ship and validate a bigger MVP in phases.
+description: Sequence the build into ordered, shippable, validatable milestones (waves) after the whole-product overview is locked, each with a validation goal — then slice one wave at a time into tickets. Optional; a small scope skips it. Use in the implementation phase to phase delivery, not to partition the design.
 disable-model-invocation: true
 ---
 
@@ -14,7 +14,7 @@ Two altitudes compose. A wave is fat at the **validation** level (what to prove 
 
 ## When to reach for it
 
-Reach for it when the scope is too big to slice into tickets in one pass — many features, a greenfield build — and you want to ship it in phases that each earn their keep. It sits between [to-spec](../to-spec/SKILL.md) and [to-tickets](../to-tickets/SKILL.md).
+Reach for it in the **implementation phase**, after the whole-product overview (design, mockup, blueprint) is locked and [pre-flight](../pre-flight/SKILL.md) has greenlit the build, when the scope is big enough that shipping in ordered milestones beats one big drop. It's **optional** — a small scope goes straight to [to-tickets](../to-tickets/SKILL.md). It doesn't partition the *design* (the mockup and blueprint already cover the whole product); it phases the *delivery*.
 
 This is **not** [wayfinder](../wayfinder/SKILL.md). Wayfinder dissolves *fog* — it resolves unknowns into decisions when the way isn't visible yet. to-waves phases a *known* scope into delivery milestones. If the effort is still foggy, wayfinder first; then to-spec; then to-waves.
 
@@ -33,7 +33,7 @@ Break the scope into a short, ordered list of waves.
 - Each wave is **shippable and validatable on its own** — a coherent chunk of value, not a horizontal layer.
 - Each wave declares a **validation goal**: the hypothesis, aha-moment, or activation metric it proves. A wave with no validation goal is just an arbitrary batch — split or merge it until it has one.
 - Waves are **ordered so each builds on the last** — a wave never depends on a later one. Wave 1 is the smallest thing that proves the core.
-- A wave is **bigger than a ticket, smaller than the whole product** — small enough to mock as one flow and break into a handful of tracer bullets.
+- A wave is **bigger than a ticket, smaller than the whole product** — small enough to build and validate as one milestone and break into a handful of tracer bullets.
 
 </wave-rules>
 
@@ -53,10 +53,10 @@ Write the approved waves where the project keeps its plan — a `waves.md` under
 
 ## Then work one wave at a time
 
-Per wave, run the flow and **ship before starting the next**:
+Per wave, run the build and **ship before starting the next**:
 
-1. **[mockup](../mockup/SKILL.md)** the wave's flow and align on it.
-2. **[to-tickets](../to-tickets/SKILL.md)** to slice *that wave* into tracer bullets.
-3. **[implement](../implement/SKILL.md)** the frontier, then ship and check the wave's validation goal.
+1. **[to-tickets](../to-tickets/SKILL.md)** to slice *that wave* into tracer bullets — each promoting a slice of the already-built [mockup](../mockup/SKILL.md), never inventing frontend outside it.
+2. **[implement](../implement/SKILL.md)** the frontier.
+3. Validate the wave's goal with **[manual-qa](../manual-qa/SKILL.md)** (or skip to a single check at the very end), then ship before starting the next.
 
-Do not slice every wave into tickets up front — that throws away what shipping wave 1 teaches you. Slice the wave you're on.
+Do not slice every wave into tickets up front — that throws away what shipping wave 1 teaches you. Slice the wave you're on. The design, mockup, and diagrams are already whole-product from the overview — waves sequence the *build*, not the design.

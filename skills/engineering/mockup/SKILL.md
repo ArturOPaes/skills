@@ -1,11 +1,11 @@
 ---
 name: mockup
-description: Build a high-fidelity, promotable mockup in the project's real UI stack with mock data. Optional, but when adopted it becomes the canonical source of the frontend — every feature mocked and promoted in place, covering all user stories, ADRs, diagrams, and design definitions, with nothing on the frontend that isn't in the mockup first. Use to align on the UI before building and to seed the real build.
+description: Build a promotable mockup — low- or hi-fi — in the project's real UI stack with mock data. Optional, but when adopted it becomes the canonical source of the frontend: every feature mocked and promoted in place, covering all user stories, ADRs, diagrams, and design definitions, with nothing on the frontend that isn't in the mockup first. Use to align on the UI before building and to seed the real build.
 ---
 
 # Mockup
 
-A mockup is **high-fidelity, promotable UI that renders a whole flow** so you can walk it and align on it before building. It is the opposite of a [prototype](../prototype/SKILL.md): a prototype is throwaway code that answers one question and gets deleted; a mockup is real code you keep and grow into the feature.
+A mockup is **promotable UI that renders a whole flow** — low- or hi-fi — so you can walk it and align on it before building. It is the opposite of a [prototype](../prototype/SKILL.md): a prototype is throwaway code that answers one question and gets deleted; a mockup is real code you keep and grow into the feature.
 
 The defining constraint: **the mockup is promotable, not throwaway.** It's built in the project's actual UI stack, from real components and real design tokens, with mock data behind a clear seam — so shipping it is swapping mock data for real, never a rewrite.
 
@@ -17,6 +17,15 @@ The mockup is **optional** — but the moment you adopt it, it becomes the **sin
 - **Implementation happens *in* it, in place.** "Promotable, not throwaway" is what makes this work: features aren't rebuilt elsewhere — the mock data behind each screen is swapped for real, wave by wave, ticket by ticket. The mockup and the shipped frontend converge into the same code.
 - **Waves and tickets slice it, they don't bypass it.** Breaking the layout into incremental tickets is expected — implement a screen, then a section, then a detail. But a ticket promotes a *slice of the mockup*; it never introduces frontend the mockup doesn't already contain.
 - **The invariant: nothing on the frontend that isn't in the mockup.** Every FE definition — a field, a screen, an action, a state — must appear in the mockup *before* it's implemented. If implementation needs something the mockup lacks, add it to the mockup first (and trace it back to its owning decision — a user story, an ADR, `DESIGN.md`), never invent it in production code. This is the invariant [pre-flight](../pre-flight/SKILL.md) checks before greenlighting a build.
+
+## Low-fi or hi-fi — ask first
+
+Ask which fidelity to build at before drawing. They're two fidelities of the **same** canonical mockup, not two different artifacts:
+
+- **Low-fi** — real components and the real structure, with **every screen, field, and action present**, but no visual polish: neutral styling, placeholder copy, no motion. Fast to build, and enough to validate **coverage and flow** — is every user story here, does the navigation work, is a field missing. The invariant already holds at low-fi: nothing on the frontend that isn't in the mockup.
+- **Hi-fi** — the full [design-taste](../design-taste/SKILL.md) polish (tokens, type scale, motion, platform conventions) applied to that same code. It's a **promotion of the low-fi in place**, not a rebuild — you style what's already there.
+
+Start low-fi to align on completeness cheaply, then promote to hi-fi once the coverage is right; or go straight to hi-fi when the design language is already settled. Either way it's one mockup that gains polish, never a second one.
 
 ## When to reach for it
 
