@@ -31,15 +31,33 @@ Before committing to sub-shape B, sanity-check: is there really no existing page
 
 In both sub-shapes the floating bottom bar is identical.
 
+## Pick the platform first
+
+Before picking N or drafting anything, ask **which platform** the UI targets — it changes the frame, the conventions, and sometimes the stack:
+
+- **Web** — desktop browser.
+- **Mobile** — mobile web: small viewport, touch, still a browser.
+- **Native** — a native app (iOS / Android).
+- **Combination** — more than one of the above.
+
+**Render matching the project's real stack.** Prototype in the stack the project actually has: if it's React Native / Expo, prototype the native variants there; if it's web-only, render the mobile/native variants inside a **phone frame** on a web route, never faking a native stack the project doesn't have. This keeps the prototype's real-stack rule intact.
+
+**Combination behaviour:**
+
+- **Web + mobile web** → one **responsive** design per variant, viewable at both sizes on the same route (a desktop view and a phone-frame view, toggled from the switcher). Same direction, multiple breakpoints — not separate variants.
+- **Anything with native** → **separate variants per platform.** Native's paradigm differs enough that a single responsive design would flatten the real difference, so you compare across platforms as well as across directions.
+
+**Obey each platform's conventions** — generous touch targets, safe areas, and native navigation on mobile/native; hover, keyboard, and higher density on web. Pull these from the [design-taste](../design-taste/SKILL.md) discipline (its platform conventions), so a mobile variant is a real mobile design, not a narrow web page.
+
 ## Process
 
-### 1. State the question and pick N
+### 1. State the question, platform, and pick N
 
 Default to **3 variants**. More than 5 stops being radically different and starts being noise — cap there.
 
-Write down the plan in one line, in the prototype's location or a top-of-file comment:
+Write down the plan in one line, in the prototype's location or a top-of-file comment, and name the platform in it:
 
-> "Three variants of the settings page, switchable via `?variant=`, on the existing `/settings` route."
+> "Three variants of the settings page, mobile web (phone-frame on a web route), switchable via `?variant=`, on the existing `/settings` route."
 
 This works whether the user is here to push back or not.
 
@@ -53,6 +71,8 @@ Draft each variant. Hold each one to:
 - A clear exported component name, e.g. `VariantA`, `VariantB`, `VariantC`.
 
 Variants must be **structurally different** — different layout, different information hierarchy, different primary affordance, not just different colours. Three slightly-tweaked card grids isn't a UI prototype, it's wallpaper. If two drafts come out too similar, redo one with explicit "do not use a card grid" guidance.
+
+**Make variant A your recommended direction.** Order the variants so A is the one you'd ship, and say why in one line (in the plan and on the switcher label). The prototype opens on A by default. B and C are genuine alternatives, never strawmen built to make A win — the recommendation is a starting point for the user to accept or overrule, not a foregone conclusion.
 
 ### 3. Wire them together
 
@@ -80,11 +100,13 @@ For sub-shape B (new page): the throwaway route under `/prototype/<name>` mounts
 A small fixed-position bar at the bottom-centre of the screen with three pieces:
 
 - **Left arrow** — cycles to the previous variant (wraps around).
-- **Variant label** — shows the current variant key and, if the variant exports a name, that name too. e.g. `B — Sidebar layout`.
+- **Variant label** — shows the current variant key and, if the variant exports a name, that name too, with the recommended one marked. e.g. `A — Sidebar layout · recommended`.
 - **Right arrow** — cycles forward (wraps around).
+- **Viewport toggle** *(responsive web + mobile combos only)* — switches the current variant between desktop and a phone-frame view, so one responsive direction is judged at both sizes.
 
 Behaviour:
 
+- Opens on **variant A** (the recommended direction) when no `?variant=` is set.
 - Clicking an arrow updates the URL search param (use the framework's router — `router.replace` on Next, `navigate` on React Router, etc) so the variant is shareable and reload-stable.
 - Keyboard: `←` and `→` arrow keys also cycle. Don't intercept arrow keys when an `<input>`, `<textarea>`, or `[contenteditable]` is focused.
 - Visually distinct from the page (e.g. high-contrast pill, subtle shadow) so it's obviously not part of the design being evaluated.

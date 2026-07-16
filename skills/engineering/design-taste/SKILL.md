@@ -36,6 +36,8 @@ Use these as the checklist a considered UI passes. Each line names the slop it k
 
 **Motion.** Motion must earn its place, use natural easing, and stay interruptible and accessible. The full discipline — the eight things a considered animation gets right — is in [MOTION.md](MOTION.md).
 
+**Platform.** A design isn't platform-neutral — desktop web, mobile web, and native each earn their own touch targets, navigation idioms, and safe-area rules. The per-platform conventions are in [PLATFORMS.md](PLATFORMS.md); apply them on top of the principles above, and record which platforms the project targets in `DESIGN.md`.
+
 ## The anti-slop tells
 
 The specific patterns that mark a UI as machine-default — overused fonts, the AI gradient, nested cards, dated easing, untinted neutrals — are catalogued as a fast pre-flight checklist in [ANTI-SLOP.md](ANTI-SLOP.md). Run it against any drawn UI before calling it done.

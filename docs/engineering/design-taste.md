@@ -33,7 +33,7 @@ Two leading ideas make this skill click:
 - **The three dials** — variance, motion, density. Most arguments about "does this look good" are really arguments about where a dial should sit: a data tool wants low variance and high density; a landing page wants the opposite. Settle the dials first, and the rest of the choices fall into place.
 - **The anti-slop tells** — a fast pre-flight checklist of the patterns that mark a UI as AI-default (the AI gradient, untinted neutrals, card soup, default bounce). Run it over any drawn screen before calling it done.
 
-Underneath sit the principles by axis and a dedicated motion discipline (the eight things a considered animation gets right). Every principle ultimately resolves to a **token** — the point where taste becomes enforceable rather than a matter of opinion.
+Underneath sit the principles by axis, a dedicated motion discipline (the eight things a considered animation gets right), and a set of **platform conventions** — the touch targets, navigation idioms, and safe-area rules that make a mobile or native design more than a narrow web page. Every principle ultimately resolves to a **token** — the point where taste becomes enforceable rather than a matter of opinion.
 
 ## Where it fits
 
