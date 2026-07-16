@@ -1,6 +1,6 @@
 {
   "name": "tutu-skills",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Agent skills for real engineering — grilling, spec/ticket flows, TDD, code review, domain modelling and more. Plug-and-play, not vibe coding. Based on Matt Pocock's skills (MIT).",
   "author": {
     "name": "Artur Paes",
