@@ -26,7 +26,7 @@ Reach for it when the problem is *finding what a checklist can't* — the missin
 
 Three things make this skill click:
 
-- **The generative probes** — CRUD-completeness, action→consequence, state quality, native/unstyled controls, and shortest-path/friction. Each is a *question that produces findings*, run on every screen, so it works on an unfamiliar app.
+- **The generative probes** — CRUD-completeness, action→consequence, state quality, native/unstyled controls, and shortest-path/friction. Each is a *question that produces findings*, run on every screen, so it works on an unfamiliar app. Action→consequence reaches across external boundaries too: for a third-party handoff (payment, auth), drive the sandbox, **simulate the provider's callback**, and verify the state actually moved.
 - **Journeys and personas, from zero** — the deepest gaps hide in flows and roles, not single screens. So the critique also walks the product end-to-end from a clean slate for **every persona the project defines**: signup and onboarding, cross-persona handoffs (invite → received → accepted → in the platform with the right access), and permissions in both directions (allowed *and* blocked).
 - **The grilling posture** — two passes kept separate (conformance, then critique), one thing at a time, never satisfied with "it works", every finding carrying a recommended fix, and *missing* (a gap) separated from *weak* (an improvement) because they're closed differently.
 
