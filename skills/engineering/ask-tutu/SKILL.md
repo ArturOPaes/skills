@@ -53,11 +53,12 @@ Not feature work — upkeep.
 
 ## Vocabulary underneath
 
-Three model-invoked references that run *beneath* the other skills — each the single source of truth for its vocabulary. Reach for them directly when the **words**, not the process, are the problem; or let the skills above pull them in.
+Four model-invoked references that run *beneath* the other skills — each the single source of truth for its vocabulary or method. Reach for them directly when the **words** (or the **critique**), not the process, are the problem; or let the skills above pull them in.
 
 - **`/domain-modeling`** — sharpen the project's *domain* language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), record a hard-to-reverse decision as an ADR. It's the active discipline `/grill-with-docs` drives to keep `CONTEXT.md` a clean glossary.
 - **`/codebase-design`** — the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `/tdd` and `/improve-codebase-architecture` both speak it.
 - **`/design-taste`** — the *visual and interaction* vocabulary (the three dials — variance, motion, density — plus typography, spacing, tokens, depth, motion, and the anti-slop tells) for making UI look considered rather than machine-default. It's the active discipline `/grill-design` drives to keep a clean `DESIGN.md`, and the taste `/mockup` and `/prototype` draw against. The design-side counterpart to `/domain-modeling`.
+- **`/critical-qa`** — the *QA critique* method: generative probes (CRUD-completeness, action→consequence, state quality, native controls, shortest-path) and a grilling posture that surface **what's missing and what's weak**, not just whether the spec was met. It's the eye `/manual-qa` runs beyond pass/fail — the validation-side counterpart to `/design-taste`.
 
 ## Crossing sessions
 
