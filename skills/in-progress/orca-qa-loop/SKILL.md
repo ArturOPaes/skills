@@ -56,15 +56,6 @@ Conformance — does the UI match the definition — is the **floor, not the cei
 
 A screen can pass conformance and still be a bad screen. These lenses are how the loop catches that.
 
-**The caliber to aim for.** Real findings the shallow pass missed, and how each is classed:
-
-- *"There's no way to change my name, password, or theme."* — a settings/account story that renders read-only or has no screen at all. **conformance · blocker** (the feature is missing), traced to the account US.
-- *"I subscribed to a plan but my document quota still shows 0/5."* — the UI doesn't reflect a state change the story promises. **conformance · blocker** (behaviour bug), traced to the billing/plan US.
-- *"Clicking a menu item shows the text 'loading' instead of a real loading state."* — a raw placeholder where the design language wants a skeleton or spinner. **improvement · ux/fidelity**, traced to `DESIGN.md` / the mockup's loading state.
-- *"The file-upload uses the browser's default 'Choose file' button."* — an unstyled native control outside the design system. **improvement · fidelity**, traced to `DESIGN.md` / the mockup.
-
-Each is written as behaviour in the user's words (expected vs. observed), not as code — the conformance ones dispatch a straight fix; the improvement ones dispatch a grill worker to update the definition first, then build.
-
 ## The loop
 
 Designed to be re-entered every iteration by `/loop` — each pass either advances a fix or confirms clean.
