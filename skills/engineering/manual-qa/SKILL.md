@@ -16,6 +16,12 @@ You invoke this by typing `/manual-qa` — the agent won't reach for it on its o
 
 Reach for it to validate a just-built task before shipping — the human pass for what automation can't cheaply judge: does it *feel* right, does it *look* right, does it hold up on real-shaped data. It is not a manual re-run of [e2e](../e2e/SKILL.md): where a criterion already has a green e2e test, trust it and spend the manual effort on the gaps automation doesn't cover.
 
+## Match the hi-fi mockup
+
+When a **hi-fi mockup** exists, validating the built task includes comparing the shipped FE **against it**: layout, spacing, states, components, and design should match. A hi-fi mockup is a promise about how the UI looks — divergence from it is a **finding**, not a matter of taste, because a mockup you aligned on and then didn't build to was wasted. Walk it screen by screen next to the mockup route; where they differ, the built UI is what's wrong (the mockup is the canonical source), unless the difference is itself a decision that should go back and change the mockup first.
+
+No hi-fi mockup, or a deliberately low-fi one? Then there's no visual fidelity target — validate behaviour and coverage, and note the absence rather than inventing a standard.
+
 ## Pick a mode — ask the user
 
 Two ways to reach a validatable state. **Ask which one** before doing anything:
@@ -36,7 +42,7 @@ The local mode is safe; touching a live environment is not. These are rules, not
 1. **Identify the task and its acceptance criteria** — the ticket or user story under validation.
 2. **Ask the mode** — local-with-seeds, or a named environment.
 3. **Reach the validatable state** — seed the specific flow and bring the app up locally, or connect to the environment.
-4. **Walk each criterion with the user.** Show what to check; capture pass / fail and a note per criterion. Do not mark a criterion passed on the user's behalf.
+4. **Walk each criterion with the user.** Show what to check; capture pass / fail and a note per criterion. Do not mark a criterion passed on the user's behalf. When a hi-fi mockup exists, this includes checking the built UI **matches it** (see *Match the hi-fi mockup*).
 5. **Record the verdict.** Pass → note the validation on the ticket. Fail → hand the finding to [diagnosing-bugs](../diagnosing-bugs/SKILL.md), or file it through [triage](../triage/SKILL.md).
 
 Validate one task or flow, not the whole app.
