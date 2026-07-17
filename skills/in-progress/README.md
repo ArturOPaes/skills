@@ -3,6 +3,7 @@
 Skills that are still being developed. They're not ready to ship — expect rough edges, breaking changes, and abandoned experiments. They're excluded from the plugin and the top-level README until they graduate to a stable bucket.
 
 - **[loop-me](./loop-me/SKILL.md)** — Grill yourself into implementable workflow specs over multiple sessions, using the current directory as a stateful workspace. User-invoked.
+- **[orca-qa-loop](./orca-qa-loop/SKILL.md)** — Unattended, Orca-coordinated loop that validates a project's whole frontend against its definition screen by screen in Orca's embedded browser, scores the findings, and dispatches worker agents to grill-and-fix each one until clean. Local only, run via `/loop`. User-invoked.
 - **[wizard](./wizard/SKILL.md)** — Generate an interactive bash wizard that walks a human through a manual procedure (setup, a one-off migration, a state transition) — opening URLs, capturing values, writing `.env` and GitHub Actions secrets. User-invoked.
 - **[writing-beats](./writing-beats/SKILL.md)** — Shape an article as a journey of beats, choose-your-own-adventure style. Pick a starting beat, write only that beat, then pivot to the next, until the article reaches a natural end.
 - **[writing-fragments](./writing-fragments/SKILL.md)** — Grilling session that mines you for fragments — heterogeneous nuggets of writing — and appends them to a single document as raw material for a future article.

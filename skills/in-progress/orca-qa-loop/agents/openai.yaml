@@ -1,0 +1,5 @@
+interface:
+  display_name: "Orca QA Loop"
+  short_description: "Unattended Orca loop that validates every screen and dispatches fixes"
+policy:
+  allow_implicit_invocation: false
