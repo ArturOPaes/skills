@@ -22,6 +22,10 @@ When a **hi-fi mockup** exists, validating the built task includes comparing the
 
 No hi-fi mockup, or a deliberately low-fi one? Then there's no visual fidelity target — validate behaviour and coverage, and note the absence rather than inventing a standard.
 
+## Look critically, not just pass/fail
+
+Walking the acceptance criteria proves what was *asked for* got built. It's blind to what the criteria never named — a missing action, a state change that doesn't reflect, a raw default where the design language wants a real state. So on top of the criteria, run the [critical-qa](../critical-qa/SKILL.md) critique: its generative probes (CRUD-completeness, action→consequence, state quality, native controls, shortest-path) and grilling posture surface **what's missing and what's weak**. Capture those as findings alongside the pass/fail — a gap routes to a fix or a new decision, an improvement routes back through the definition first. Pass/fail is the floor; the critique is the point of a *human* pass.
+
 ## Pick a mode — ask the user
 
 Two ways to reach a validatable state. **Ask which one** before doing anything:
@@ -42,7 +46,7 @@ The local mode is safe; touching a live environment is not. These are rules, not
 1. **Identify the task and its acceptance criteria** — the ticket or user story under validation.
 2. **Ask the mode** — local-with-seeds, or a named environment.
 3. **Reach the validatable state** — seed the specific flow and bring the app up locally, or connect to the environment.
-4. **Walk each criterion with the user.** Show what to check; capture pass / fail and a note per criterion. Do not mark a criterion passed on the user's behalf. When a hi-fi mockup exists, this includes checking the built UI **matches it** (see *Match the hi-fi mockup*).
+4. **Walk each criterion with the user.** Show what to check; capture pass / fail and a note per criterion. Do not mark a criterion passed on the user's behalf. When a hi-fi mockup exists, this includes checking the built UI **matches it** (see *Match the hi-fi mockup*). Beyond the criteria, run the [critical-qa](../critical-qa/SKILL.md) critique and capture what's missing or weak as findings too (see *Look critically*).
 5. **Record the verdict.** Pass → note the validation on the ticket. Fail → hand the finding to [diagnosing-bugs](../diagnosing-bugs/SKILL.md), or file it through [triage](../triage/SKILL.md).
 
 Validate one task or flow, not the whole app.
