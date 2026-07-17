@@ -23,6 +23,10 @@ This skill is an **orchestrator built on Orca**, so it assumes Orca is the runti
 
 The coordinator never invokes the tutu user-invoked skills itself — it can't. It **dispatches prompts to worker agents** (fresh Claude/Codex sessions in Orca worktrees), and each worker, being its own session, runs `/grill-with-docs`, `/implement`, and the rest as instructed. That's how the loop "forces the flow" without breaking the user-invoked boundary.
 
+## Cadence
+
+Run it **self-paced** — `/loop /orca-qa-loop` with no interval. A pass isn't a fixed-length job: it hinges on workers finishing. So anchor the next wake on the **active worker's `check --wait`** (the event that makes a re-sweep worth doing), with a **long fallback heartbeat** so the loop survives a hung worker. A fixed clock either fires while workers are still building (wasted pass) or sits idle. Let the work, not a timer, pace it.
+
 ## Pick up in-flight work, or start from main
 
 Before validating, **check what's already moving** — never start a second worker on a screen someone is already fixing:
@@ -39,8 +43,27 @@ A finding is a **gap between the definition and the running UI**, so the definit
 - **The hi-fi mockup** — the canonical frontend source ([mockup](../../engineering/mockup/SKILL.md)). It fixes *layout and visual fidelity*: the shipped screen must match it. Divergence is a finding, not taste.
 - **`BLUEPRINT.md` wireflows** — the per-screen field/action map ([blueprint](../../engineering/blueprint/SKILL.md)). It fixes *what each screen must contain*: every field, and every action — **add / edit / remove** and the rest — that the definition says belongs on a screen must actually render and work.
 - **The user stories** — the *features*. Every story must be reachable and reflected in the UI.
+- **`DESIGN.md`** — the design language ([design-taste](../../engineering/design-taste/SKILL.md)): the dials, tokens, type scale, and motion the screens must speak.
 
 No mockup or blueprint? Then there's no visual/coverage target — validate against the stories alone and **record the absence** as itself a finding (the overview was never drawn), rather than inventing a standard.
+
+## Look with a designer's and a PO's eye
+
+Conformance — does the UI match the definition — is the **floor, not the ceiling**, and it's where the shallow pass stopped: it confirmed a control was *present* and missed whether the screen was any *good*. So every screen gets two more lenses:
+
+- **The PO lens — is the user's job done well?** Not "does the control exist" but "can the user reach their outcome, by the shortest sensible path?" Look for dead ends and missing states; a flow that costs more steps than it should; a story that renders but doesn't *deliver* its outcome; an action a real user would obviously need that nobody specced — add with no bulk action, edit with no undo, a list with no empty state, a form with no error recovery. Judge the **experience of the job**, not the checklist.
+- **The designer lens — is it considered, not machine-default?** Run the [design-taste](../../engineering/design-taste/SKILL.md) discipline over each screen: visual hierarchy and where the eye lands first, spacing rhythm and alignment, affordance clarity (does the clickable thing *look* clickable), consistency of components and language across screens, the quality of empty / loading / error states, responsive behaviour, and motion. Run its **anti-slop checklist** — the tells of generic, undecided UI. Obey `DESIGN.md`; where it's thin, a weak screen is still a design finding.
+
+A screen can pass conformance and still be a bad screen. These lenses are how the loop catches that.
+
+**The caliber to aim for.** Real findings the shallow pass missed, and how each is classed:
+
+- *"There's no way to change my name, password, or theme."* — a settings/account story that renders read-only or has no screen at all. **conformance · blocker** (the feature is missing), traced to the account US.
+- *"I subscribed to a plan but my document quota still shows 0/5."* — the UI doesn't reflect a state change the story promises. **conformance · blocker** (behaviour bug), traced to the billing/plan US.
+- *"Clicking a menu item shows the text 'loading' instead of a real loading state."* — a raw placeholder where the design language wants a skeleton or spinner. **improvement · ux/fidelity**, traced to `DESIGN.md` / the mockup's loading state.
+- *"The file-upload uses the browser's default 'Choose file' button."* — an unstyled native control outside the design system. **improvement · fidelity**, traced to `DESIGN.md` / the mockup.
+
+Each is written as behaviour in the user's words (expected vs. observed), not as code — the conformance ones dispatch a straight fix; the improvement ones dispatch a grill worker to update the definition first, then build.
 
 ## The loop
 
@@ -54,8 +77,9 @@ Designed to be re-entered every iteration by `/loop` — each pass either advanc
    - **Feature coverage** — every user story that touches this screen is present and reflected in the UI, not stubbed.
    - **Actions present and wired** — for each action the definition requires (**add, edit, remove**, and the rest), the control **renders** and **does its thing** — click it in the browser and confirm the result, don't just eyeball its presence.
    - **States** — empty, loading, error, not just the happy path.
-4. **Score the findings** — write each gap to the ledger (below) with a severity and a **trace back to the definition node** it violates (Screen / US / ADR / a mockup element). A gap with no owning decision is itself a finding: either the definition is missing it, or the UI invented it.
-5. **Dispatch a fix per finding** — for each open finding, `orca orchestration task-create` + `dispatch --inject` a worker in its own worktree with a tight brief: the finding, its definition trace, and the instruction to **grill the gap and fix it through the tutu flow** (`/grill-with-docs` to sharpen what's actually wrong → `/implement`, promoting the mockup in place → a regression check). Independent findings fan out in parallel; dependent ones become a DAG.
+   - **The designer + PO lenses** — on top of conformance, judge the *quality* of the screen and the *job* (see *Look with a designer's and a PO's eye*). This is the part the shallow pass skips.
+4. **Score the findings** — write each to the ledger (below), classed **conformance** (UI ≠ definition) or **improvement** (a better product/UI the definition doesn't yet require), with a severity and a **trace to the definition node** it touches (Screen / US / ADR / mockup element / `DESIGN.md`). Write findings the way the [qa](../../deprecated/qa/SKILL.md) discipline files issues: **durable and user-focused** — the behaviour and the experience in the project's domain language, expected vs. observed, never file paths or code that go stale. Split a fat finding into **thin, independently-fixable** ones so workers can fan out. A conformance gap with no owning decision is itself a finding: the definition is missing it, or the UI invented it.
+5. **Dispatch a fix per finding** — for each open finding, `orca orchestration task-create` + `dispatch --inject` a worker in its own worktree with a tight brief: the finding, its trace, and how to close it. **Conformance** findings get a straight fix through the tutu flow (`/grill-with-docs` to sharpen → `/implement`, promoting the mockup in place → a regression check). **Improvement** findings are *proposals, not facts* — a worker can't invent product: dispatch a **grill worker that refines the proposal into a decision and updates the definition first** (the mockup, `BLUEPRINT.md`, `DESIGN.md`, or a new user story), *then* implements from it — so the invariant holds (nothing on the FE that isn't in the mockup) even as the loop improves the product. A proposal the grill can't justify is dropped or escalated, never forced. Order the dispatch blockers-first: independent findings fan out in parallel, dependent ones become a DAG.
 6. **Wait and re-validate** — `check --wait` for `worker_done`, then **re-sweep the affected screens only** to confirm the finding is actually closed (workers report done; the coordinator verifies). A finding is cleared only when the UI proves it.
 7. **Loop or settle** — open findings remain? Next `/loop` pass picks them up. Ledger clean? Report clean and stop. Blocked/ambiguous/repeatedly-failing finding? **Escalate** — it runs unattended, so escalation is how the human gets pulled in, not a silent skip.
 
@@ -64,9 +88,10 @@ Designed to be re-entered every iteration by `/loop` — each pass either advanc
 One durable file the loop reads and writes each pass — `.scratch/qa-loop/findings.md` (or the project's tracker). Per finding:
 
 - **id** and **screen/route**.
-- **severity** — `blocker` (feature missing, action dead) › `major` (wrong behaviour/flow) › `fidelity` (diverges from hi-fi mockup) › `minor`.
-- **the gap** — expected (from the definition) vs. observed (in the browser), with a screenshot ref.
-- **trace** — the definition node it violates (`Screen:<Name>` / `US-<n>` / `ADR-<n>` / a mockup element).
+- **class** — `conformance` (UI ≠ definition) or `improvement` (a better product/UI the definition doesn't yet require).
+- **severity** — `blocker` (feature missing, action dead) › `major` (wrong behaviour/flow) › `ux` (the job is clumsy or a designer/PO finding) › `fidelity` (diverges from hi-fi mockup) › `minor`.
+- **the gap** — expected vs. observed, in the project's **domain language** as behaviour/experience (not code), with a screenshot ref.
+- **trace** — the definition node it touches (`Screen:<Name>` / `US-<n>` / `ADR-<n>` / a mockup element / `DESIGN.md`).
 - **status** — `open` › `dispatched` (+ task/worktree id) › `fixed` › `verified`, or `escalated`.
 
 The ledger is the loop's memory: it survives compaction and `/loop` re-entry, and it's the report at the end.
