@@ -30,6 +30,8 @@ It reads, rather than writes, the product's artifacts: `CONTEXT.md` and the ADRs
 
 The check that makes it a gate rather than a checklist is **coverage**. A `BLUEPRINT.md` that omits half the product's user stories, or a mockup missing a screen a story needs, is a **fail** — the artifact exists but doesn't cover the product. Each gap routes back to its owning skill to refresh (docs → grill-with-docs, `DESIGN.md` → grill-design, diagrams → blueprint, mockup → mockup); pre-flight re-checks, never patches. A product with no UI legitimately needs no mockup or `DESIGN.md`; a deliberate skip is a **recorded waiver**, not a silent one.
 
+When the FE is meant to be polished, the gate also requires the mockup to be at **hi-fi** — it's the visual reference the build is required to match, and [manual-qa](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/manual-qa) checks that match after. A low-fi mockup passes on structure and coverage but defers visual fidelity (promote low → hi before shipping), recorded, never left as an unstated gap.
+
 ## It's working if
 
 - It reports readiness per user story and screen, not just "docs: yes / no".

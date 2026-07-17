@@ -27,6 +27,8 @@ Ask which fidelity to build at before drawing. They're two fidelities of the **s
 
 Start low-fi to align on completeness cheaply, then promote to hi-fi once the coverage is right; or go straight to hi-fi when the design language is already settled. Either way it's one mockup that gains polish, never a second one.
 
+The hi-fi mockup is the **binding visual reference** for the shipped frontend: the final implementation must align to it — matching it is the whole point of building it at fidelity. Because the mockup is promoted in place, that alignment is by construction; the gates verify it held — [pre-flight](../pre-flight/SKILL.md) confirms a hi-fi reference exists before the build, and [manual-qa](../manual-qa/SKILL.md) checks the shipped FE matches it after. A hi-fi mockup you aligned on and then didn't build to was wasted.
+
 ## When to reach for it
 
 Reach for it when a flow is decided enough to draw but expensive to build, and you want to **validate the whole experience cheaply first** — a whole flow, up to the entire frontend once adopted as the base, walked end-to-end and aligned on before a line of production logic is written. It is the natural companion to a bigger MVP: mocking the flow is cheaper than building it, so it de-risks the bet.

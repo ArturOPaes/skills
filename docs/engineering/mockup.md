@@ -22,6 +22,8 @@ Using a mockup is optional — but adopt one and it becomes the **single source 
 
 That yields one hard invariant: **nothing on the frontend that isn't in the mockup first.** Waves and tickets slice the mockup into incremental work, but a ticket only ever promotes a slice that already exists; anything new gets added to the mockup (and traced to its owning decision) before it's built, never invented in production code. It's the invariant [pre-flight](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/pre-flight) checks before greenlighting a build.
 
+And when it's **hi-fi**, the mockup is also the **binding visual reference**: the shipped FE must *match* it, not just be covered by it. Because it's promoted in place, that alignment is by construction — the gates verify it held (pre-flight requires the hi-fi reference before the build, [manual-qa](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/manual-qa) checks the built UI matches it after). A hi-fi mockup you aligned on and then didn't build to was wasted.
+
 ## When to reach for it
 
 Type `/mockup`, or the agent reaches for it when a flow is decided enough to draw but expensive to build and you want to validate the whole experience cheaply first.
