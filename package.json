@@ -1,6 +1,6 @@
 {
   "name": "tutu-skills",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "private": true,
   "description": "Agent skills for real engineering. Based on Matt Pocock's skills (MIT).",
   "repository": {

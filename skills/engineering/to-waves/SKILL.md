@@ -14,7 +14,7 @@ Two altitudes compose. A wave is fat at the **validation** level (what to prove 
 
 ## When to reach for it
 
-Reach for it in the **implementation phase**, after the whole-product overview (design, mockup, blueprint) is locked and [pre-flight](../pre-flight/SKILL.md) has greenlit the build, when the scope is big enough that shipping in ordered milestones beats one big drop. It's **optional** — a small scope goes straight to [to-tickets](../to-tickets/SKILL.md). It doesn't partition the *design* (the mockup and blueprint already cover the whole product); it phases the *delivery*.
+Reach for it in the **implementation phase**, after the whole-product overview (design, mockup, open-design, blueprint) is locked and [pre-flight](../pre-flight/SKILL.md) has greenlit the build, when the scope is big enough that shipping in ordered milestones beats one big drop. It's **optional** — a small scope goes straight to [to-tickets](../to-tickets/SKILL.md). It doesn't partition the *design* (the mockup and blueprint already cover the whole product); it phases the *delivery*.
 
 This is **not** [wayfinder](../wayfinder/SKILL.md). Wayfinder dissolves *fog* — it resolves unknowns into decisions when the way isn't visible yet. to-waves phases a *known* scope into delivery milestones. If the effort is still foggy, wayfinder first; then to-spec; then to-waves.
 

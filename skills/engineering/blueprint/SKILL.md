@@ -60,7 +60,7 @@ The **screen detail map** (a wireflow — a wireframe's content joined to the fl
 `blueprint` is part of the **whole-product overview**, drawn upfront before any implementation — after the spec and the mockup, and before the pre-flight gate:
 
 ```txt
-to-spec → grill-design → mockup → blueprint → pre-flight → (build)
+to-spec → grill-design → mockup → open-design → blueprint → pre-flight → (build)
 ```
 
 It reads the spec's stories, the mockup's screens, and the domain's ADRs, and hands the developer a connected macro view of the whole product before the build begins; the tickets that `to-tickets` cuts later fill its traceability map's ticket column. It extends the same **traceability spine** that [mockup](../mockup/SKILL.md) (semantic markup) and [e2e](../e2e/SKILL.md) (selectors) build — the blueprint is the story-to-screen-to-ticket layer of it. Reach for it standalone any time you want to visualise an existing spec. When you're unsure which skill or flow fits, [ask-tutu](../ask-tutu/SKILL.md) routes you.
