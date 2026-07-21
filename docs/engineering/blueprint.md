@@ -44,7 +44,7 @@ What makes them a *blueprint* rather than seven unrelated drawings is a set of *
 `blueprint` is part of the **whole-product overview**, drawn upfront before any implementation — after the spec and mockup, and before the pre-flight gate:
 
 ```txt
-to-spec → grill-design → mockup → blueprint → pre-flight → (build)
+to-spec → grill-design → mockup → open-design → blueprint → pre-flight → (build)
 ```
 
 It hands the developer a connected macro view of the whole product before the build begins, and extends the same traceability spine that [mockup](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/mockup) and [e2e](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/e2e) build; the tickets that [to-tickets](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/to-tickets) cuts later fill its traceability map's ticket column. When you're unsure which skill or flow fits, [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu) routes you.

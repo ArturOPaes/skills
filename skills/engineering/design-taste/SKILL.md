@@ -9,7 +9,7 @@ Design **against slop**. The default an untended agent reaches for is the median
 
 Two jobs live here:
 
-- **The vocabulary and principles** below are the *source of truth* other skills question against — the words and rules `mockup`, `prototype`, and any design review reach for.
+- **The vocabulary and principles** below are the *source of truth* other skills question against — the words and rules `mockup`, `open-design`, `prototype`, and any design review reach for.
 - **The active discipline** captures the project's own design language into `DESIGN.md` the moment a choice is made — mirroring how [domain-modeling](../domain-modeling/SKILL.md) captures `CONTEXT.md`. Merely *reading* `DESIGN.md` for tokens is a one-line habit any skill can do; this skill is for when you're *setting* the language, not just consuming it.
 
 ## The three dials
@@ -56,7 +56,7 @@ When you're *setting* the language, not just applying it:
 
 - The **dials** set the ceiling for the **principles**: how much variance, motion, and density is *in taste* for this project.
 - **Tokens** are where taste becomes enforceable — every principle above ultimately resolves to a token in `DESIGN.md`.
-- **`mockup`** renders a whole flow *against* this vocabulary and `DESIGN.md`; **`prototype`**'s UI branch varies *within* it; a design review audits *against* it.
+- **`mockup`** renders a whole flow *against* this vocabulary and `DESIGN.md`; **`open-design`** generates the hi-fi visual reference *from* it; **`prototype`**'s UI branch varies *within* it; a design review audits *against* it.
 - **`grill-design`** is this discipline driven by a grilling — the interview that fills `DESIGN.md` in the first place.
 
 ## Rejected framings

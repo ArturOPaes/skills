@@ -14,7 +14,7 @@ When [to-waves](../to-waves/SKILL.md) has already partitioned the scope, slice *
 
 If a `BLUEPRINT.md` exists (from [blueprint](../blueprint/SKILL.md)), slice against it — its traceability map already names the screens and stories each ticket must satisfy, so the tickets you cut here become the `#<n>` nodes that close its ticket column.
 
-If a [mockup](../mockup/SKILL.md) is the project's canonical frontend source, frontend tickets **promote a slice of the mockup** in place — a screen, a section, a detail — and must not introduce any frontend the mockup doesn't already contain. If a ticket would, the mockup is extended first (back to its owning decision); never let production frontend get ahead of the mockup.
+If a [mockup](../mockup/SKILL.md) is the project's canonical frontend source (the `mockup+hi-fi` design flow), frontend tickets **promote a slice of the mockup** in place — a screen, a section, a detail — and must not introduce any frontend the mockup doesn't already contain. If a ticket would, the mockup is extended first (back to its owning decision); never let production frontend get ahead of the mockup. On the `hi-fi-only` flow there is no mockup: frontend tickets build the screen in-stack **toward the [open-design](../open-design/SKILL.md) reference**, and must not introduce frontend the design doesn't already show — the design is extended first, same discipline.
 
 ## Process
 

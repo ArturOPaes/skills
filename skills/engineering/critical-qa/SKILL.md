@@ -16,7 +16,7 @@ The defining move: **a checklist can only find what's on it.** So critical QA do
 
 ## The posture — grilling, pointed at a built UI
 
-- **Two passes, kept separate.** First **conformance** — does the UI match its definition (the spec, mockup, blueprint). Then **critique** — the generative pass below, which asks what the definition never did. Conformance findings are bugs; critique findings are gaps and improvements. Don't let the first pass' "it matches" end the interrogation.
+- **Two passes, kept separate.** First **conformance** — does the UI match its definition (the spec, mockup, open-design reference, blueprint). Then **critique** — the generative pass below, which asks what the definition never did. Conformance findings are bugs; critique findings are gaps and improvements. Don't let the first pass' "it matches" end the interrogation.
 - **One thing at a time, never satisfied.** Take a screen, exhaust it, move on. "It works" is where the questioning *starts*, not ends: a screen can be fully functional and still be missing an obvious action or wearing a raw default.
 - **Every finding carries a recommended fix.** As grilling attaches a recommended answer to each question, each finding attaches the change that would close it — so it's actionable, not just a complaint.
 - **Separate *missing* from *weak*.** A **gap** is something the user needs that isn't there (route it as a conformance/coverage fix, or as a new decision). An **improvement** is something present but sub-par (route it back through the definition first — never invent product silently). Both are findings; they're closed differently.
