@@ -1,0 +1,3 @@
+interface:
+  display_name: "Open Design"
+  short_description: "Generate a flow's hi-fi visual design as a binding reference before building"

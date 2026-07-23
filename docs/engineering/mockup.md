@@ -12,17 +12,17 @@ npx skills update mockup
 
 ## What it does
 
-`mockup` builds a high-fidelity render of a whole flow — every screen and state — in the project's real UI stack, on a dedicated route with mock data, so you can walk it and align on it before building.
+`mockup` builds a low-fi render of a whole flow — every screen, field, action, and state — in the project's real UI stack, on a dedicated route with mock data, so you can walk it and align on coverage and structure before building.
 
-The mockup is promotable, not throwaway. It's real components and real design tokens with mock data isolated behind one clear seam, so shipping it is swapping that seam for real data — never a rewrite. That single fact separates it from a prototype and is the reason it's worth building at production fidelity.
+The mockup is promotable, not throwaway. It's real components and real design tokens with mock data isolated behind one clear seam, so shipping it is swapping that seam for real data — never a rewrite. That single fact separates it from a prototype. It stops at low fidelity, though: the polished visual look is a separate binding reference produced by [open-design](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/open-design), not the mockup's job.
 
 ## The canonical frontend source
 
-Using a mockup is optional — but adopt one and it becomes the **single source of truth for the frontend**, not a per-wave sketch. Every feature is mocked into it (covering the user stories, ADRs, diagrams, and `DESIGN.md`) and, because it's promotable, implemented *in* it in place — the mock data is swapped for real, wave by wave, ticket by ticket, so the mockup and the shipped frontend converge into the same code.
+Using a mockup is one of two design paths a project records in `DESIGN.md`: on `mockup+hi-fi` you adopt it; on `hi-fi-only` you skip it and build toward the [open-design](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/open-design) reference alone. Adopt one and it becomes the **single source of truth for the frontend**, not a per-wave sketch. Every feature is mocked into it (covering the user stories, ADRs, diagrams, and `DESIGN.md`) and, because it's promotable, implemented *in* it in place — the mock data is swapped for real, wave by wave, ticket by ticket, so the mockup and the shipped frontend converge into the same code.
 
 That yields one hard invariant: **nothing on the frontend that isn't in the mockup first.** Waves and tickets slice the mockup into incremental work, but a ticket only ever promotes a slice that already exists; anything new gets added to the mockup (and traced to its owning decision) before it's built, never invented in production code. It's the invariant [pre-flight](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/pre-flight) checks before greenlighting a build.
 
-And when it's **hi-fi**, the mockup is also the **binding visual reference**: the shipped FE must *match* it, not just be covered by it. Because it's promoted in place, that alignment is by construction — the gates verify it held (pre-flight requires the hi-fi reference before the build, [manual-qa](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/manual-qa) checks the built UI matches it after). A hi-fi mockup you aligned on and then didn't build to was wasted.
+The mockup owns **structure and coverage**; it does not own the **look**. The polished visual is a separate **binding reference** from [open-design](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/open-design), generated from the same `DESIGN.md` and screen inventory. Implementation promotes this low-fi mockup in place and styles it to match that reference; the gates verify both (pre-flight requires the mockup's coverage *and* an open-design reference before the build, [manual-qa](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/manual-qa) checks the built UI matches the reference after).
 
 ## When to reach for it
 
@@ -45,4 +45,4 @@ It still asks you for references — screenshots, a design system, component-lib
 
 ## Where it fits
 
-`mockup` is part of the **whole-product overview**, built upfront before implementation — `grill-design → mockup → blueprint → pre-flight` — and when adopted it's the canonical frontend source every feature is mocked into and promoted from, wave by wave. Its closest neighbour is [prototype](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/prototype), the throwaway counterpart it's often confused with, and it feeds [e2e](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/e2e), whose selectors its markup becomes. When you're unsure which skill or flow fits, [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu) routes you.
+`mockup` is part of the **whole-product overview**, built upfront before implementation — `grill-design → mockup → open-design → blueprint → pre-flight` — and when adopted it's the canonical frontend structure source every feature is mocked into and promoted from, wave by wave. Its closest neighbour is [prototype](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/prototype), the throwaway counterpart it's often confused with, and it feeds [e2e](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/e2e), whose selectors its markup becomes. When you're unsure which skill or flow fits, [ask-tutu](https://github.com/ArturOPaes/skills/tree/main/skills/engineering/ask-tutu) routes you.

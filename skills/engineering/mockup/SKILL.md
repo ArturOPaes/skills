@@ -1,11 +1,11 @@
 ---
 name: mockup
-description: Build a promotable mockup — low- or hi-fi — in the project's real UI stack with mock data. Optional, but when adopted it becomes the canonical source of the frontend: every feature mocked and promoted in place, covering all user stories, ADRs, diagrams, and design definitions, with nothing on the frontend that isn't in the mockup first. Use to align on the UI before building and to seed the real build.
+description: Build a promotable low-fi mockup in the project's real UI stack with mock data. Optional, but when adopted it becomes the canonical source of the frontend's structure: every feature mocked and promoted in place, covering all user stories, ADRs, diagrams, and design definitions, with nothing on the frontend that isn't in the mockup first. The hi-fi visual look is a separate binding reference — see open-design. Use to align on coverage and flow before building, and to seed the real build.
 ---
 
 # Mockup
 
-A mockup is **promotable UI that renders a whole flow** — low- or hi-fi — so you can walk it and align on it before building. It is the opposite of a [prototype](../prototype/SKILL.md): a prototype is throwaway code that answers one question and gets deleted; a mockup is real code you keep and grow into the feature.
+A mockup is **promotable UI that renders a whole flow** at low fidelity — so you can walk it and align on **coverage and flow** before building. It is the opposite of a [prototype](../prototype/SKILL.md): a prototype is throwaway code that answers one question and gets deleted; a mockup is real code you keep and grow into the feature. The polished **visual** look is not the mockup's job — that's a separate binding reference produced by [open-design](../open-design/SKILL.md).
 
 The defining constraint: **the mockup is promotable, not throwaway.** It's built in the project's actual UI stack, from real components and real design tokens, with mock data behind a clear seam — so shipping it is swapping mock data for real, never a rewrite.
 
@@ -18,16 +18,15 @@ The mockup is **optional** — but the moment you adopt it, it becomes the **sin
 - **Waves and tickets slice it, they don't bypass it.** Breaking the layout into incremental tickets is expected — implement a screen, then a section, then a detail. But a ticket promotes a *slice of the mockup*; it never introduces frontend the mockup doesn't already contain.
 - **The invariant: nothing on the frontend that isn't in the mockup.** Every FE definition — a field, a screen, an action, a state — must appear in the mockup *before* it's implemented. If implementation needs something the mockup lacks, add it to the mockup first (and trace it back to its owning decision — a user story, an ADR, `DESIGN.md`), never invent it in production code. This is the invariant [pre-flight](../pre-flight/SKILL.md) checks before greenlighting a build.
 
-## Low-fi or hi-fi — ask first
+## Low-fi — coverage and structure, not polish
 
-Ask which fidelity to build at before drawing. They're two fidelities of the **same** canonical mockup, not two different artifacts:
+The mockup is built at **low fidelity**: real components and the real structure, with **every screen, field, action, and state present**, but no visual polish — neutral styling, placeholder copy, no motion. That's enough to validate **coverage and flow**: is every user story here, does the navigation work, is a field missing. The invariant holds at low-fi: nothing on the frontend that isn't in the mockup.
 
-- **Low-fi** — real components and the real structure, with **every screen, field, and action present**, but no visual polish: neutral styling, placeholder copy, no motion. Fast to build, and enough to validate **coverage and flow** — is every user story here, does the navigation work, is a field missing. The invariant already holds at low-fi: nothing on the frontend that isn't in the mockup.
-- **Hi-fi** — the full [design-taste](../design-taste/SKILL.md) polish (tokens, type scale, motion, platform conventions) applied to that same code. It's a **promotion of the low-fi in place**, not a rebuild — you style what's already there.
+Draw against [design-taste](../design-taste/SKILL.md) for **structure, spacing rhythm, and accessible patterns**, and bind to the project's tokens — but stop short of pixel polish. The polished visual look is a **separate artifact**: [open-design](../open-design/SKILL.md) generates the **binding visual reference** the shipped frontend must match, from the same `DESIGN.md` and screen inventory. Coverage lives here; the look lives there.
 
-Start low-fi to align on completeness cheaply, then promote to hi-fi once the coverage is right; or go straight to hi-fi when the design language is already settled. Either way it's one mockup that gains polish, never a second one.
+**This is one of two design paths, chosen per project and recorded in `DESIGN.md`.** On the `mockup+hi-fi` path the mockup is the canonical structure source (below); on the `hi-fi-only` path there is no mockup — the frontend is built toward the [open-design](../open-design/SKILL.md) reference directly, coverage is verified against that artifact, and `e2e` is backfilled from the built code. Reach for the mockup only on the `mockup+hi-fi` path; when the project's flow is `hi-fi-only`, skip it.
 
-The hi-fi mockup is the **binding visual reference** for the shipped frontend: the final implementation must align to it — matching it is the whole point of building it at fidelity. Because the mockup is promoted in place, that alignment is by construction; the gates verify it held — [pre-flight](../pre-flight/SKILL.md) confirms a hi-fi reference exists before the build, and [manual-qa](../manual-qa/SKILL.md) checks the shipped FE matches it after. A hi-fi mockup you aligned on and then didn't build to was wasted.
+Implementation then **promotes this low-fi mockup in place** and **styles it to match the open-design reference** — the mockup gives the structure that ships, open-design gives the look that ships. The gates verify it: [pre-flight](../pre-flight/SKILL.md) confirms both the mockup's coverage and an open-design reference before the build, and [manual-qa](../manual-qa/SKILL.md) checks the shipped FE matches that reference after.
 
 ## When to reach for it
 
